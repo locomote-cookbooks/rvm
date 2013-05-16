@@ -26,16 +26,6 @@ bash "chgrp -R rvm /usr/local/rvm/" do
   code "chgrp -R rvm /usr/local/rvm/"
 end
 
-cookbook_file node['rvm']['gemrc_path'] do
-  source "gemrc"
-  mode  "0644"
-end
-
-cookbook_file "/etc/rvmrc" do
-  mode  "0755"
-  source "rvmrc"
-end
-
 %w{chef bundler pry whenever}.each do |gem|
   rvm_gem gem do
     action :install
@@ -45,7 +35,7 @@ end
 
 rvm_gem 'rake' do
   action :install
-  options '--version 10.0.2'
+  options '--no-ri --no-rdoc --version 10.0.2'
 end
 
 %w{bundle rake whenever}.each do |bin|
