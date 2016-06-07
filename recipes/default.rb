@@ -3,7 +3,7 @@ include_recipe "rvm::requirements"
 rvm = "source /etc/profile.d/rvm.sh && rvm"
 
 bash "Install rvm system-wide" do
-  code 'gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && \curl -sSL https://get.rvm.io | bash -s stable'
+  code 'command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import && \curl -sSL https://get.rvm.io | bash -s stable'
   not_if "test -d /usr/local/rvm"
 end
 
