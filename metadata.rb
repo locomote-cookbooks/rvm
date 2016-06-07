@@ -2,7 +2,7 @@ maintainer       "Vasily Mikhaylichenko"
 maintainer_email "vasily@locomote.com"
 license          "Apache 2.0"
 description      "RVM and Ruby system installation"
-version          "0.3.1"
+version          "0.3.2"
 
 recipe "rvm",  "Installs RVM and Ruby in /usr/local/rvm"
 
